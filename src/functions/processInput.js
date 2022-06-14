@@ -13,22 +13,23 @@ export function processInput(n, input, dispatch, data){
       let array = test.split(' ')
       let indexOfIs = null
       let metal = ''
+      let credits = null
       let romanNumerals = []
       let arabicNumerals = []
 
-      // find the index of 'is'
+      // -- find the index of 'is' --
       array.forEach((str, i) =>{
          if(str === 'is') indexOfIs = i
       })
 
-      // save the metal type
+      // -- save the metal type --
       metal = array[indexOfIs - 1]
 
-      // slice the array
-      array = array.slice(0, indexOfIs - 1)
+      // -- slice the array --
+      let slicedArray = array.slice(0, indexOfIs - 1)
 
-      // convert intergalactic units to roman numerals
-      array.forEach((galacticUnit) => {
+      // -- convert intergalactic units to roman numerals --
+      slicedArray.forEach((galacticUnit) => {
         for(const romanSymbol in data){
           if(galacticUnit === data[romanSymbol]){
             romanNumerals = [...romanNumerals, romanSymbol]
@@ -39,12 +40,13 @@ export function processInput(n, input, dispatch, data){
       // --- validation ---- 
       // PENDING
 
-      // convert roman numerals to arabic numerals
+      // -- convert roman numerals to arabic numerals --
       romanNumerals.forEach((symbol) => {
         arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
       })
 
-      // calculate the result of the roman numerals and convert to arabic numeral
+      // -- calculate the result of the roman numerals and 
+      // convert to arabic numeral --
       let numbersToSubstract = []
       let numbersToSum = []
 
@@ -79,13 +81,21 @@ export function processInput(n, input, dispatch, data){
         return arr.reduce((a,b) => a+b, 0)
       }
 
-      let result = sum(numbersToSum) - sum(numbersToSubstract)
-      
-      // console.log(result)
+      let romanTotal = sum(numbersToSum) - sum(numbersToSubstract)
+      // console.log(romanTotal)
 
 
-      // calcuate and save the value of the metal
+      // -- calcuate and save the value of the metal --
+      metal = array[indexOfIs - 1]
+      credits = Number(array[indexOfIs + 1])
 
+      let valueOfMetal = credits/romanTotal
+
+      dispatch({
+        type: 'save value of metal',
+        metal: metal,
+        value: valueOfMetal
+      })
 
     }
   }

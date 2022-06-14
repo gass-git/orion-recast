@@ -1,6 +1,7 @@
 const initialState = {
   input: '',
-  data: {I: '', V: '', X:'', L:'', C:'', D:'', M:''}
+  data: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
+  metals: {gold: null, silver: null, bronze: null}
 }
 
 function appReducer(state, action) {
@@ -22,6 +23,15 @@ function appReducer(state, action) {
             return {
                 ...state,
                 input: action.value
+            }
+
+        case 'save value of metal':
+            return{
+                ...state,
+                metals: {
+                    ...state.metals,
+                    [action.metal]:action.value
+                }
             }
         default: return state
     }
