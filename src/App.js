@@ -8,7 +8,7 @@ export const AppContext = createContext(null)
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const {input} = state
+  const {input, data} = state
 
   function handleChange(e){
     dispatch({type:'update input value', value: e.target.value})
@@ -16,12 +16,12 @@ export default function App() {
 
   function handleClick(){
     let numberOfWords = getNumberOfWords(input)
-    processInput(numberOfWords, input, dispatch)
+    processInput(numberOfWords, input, dispatch, data)
     dispatch({type: 'reset input'})
   }
 
   return (
-    <AppContext.Provider >
+    <AppContext.Provider value={{state, dispatch}}>
       <input name='inputString' value={input} onChange={handleChange}/>
       <button onClick={() => handleClick()}>enter</button>
     </AppContext.Provider>
