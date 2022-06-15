@@ -1,6 +1,6 @@
 import {sumArrayOfNumbers} from './utilityFunctions'
 
-function getTotal(arabicNumerals){
+export default function getTotal(arabicNumerals){
   let numbersToSubstract = []
   let numbersToSum = []
   let [a, b] = [null, null]
@@ -26,5 +26,3 @@ function getTotal(arabicNumerals){
 
   return a - b
 }
-
-export {getTotal}

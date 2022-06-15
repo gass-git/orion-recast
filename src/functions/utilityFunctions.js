@@ -44,6 +44,10 @@ function convertToRoman(galacticNumerals, data){
     return romanArray
 }
 
+/** DEVELOPMENT PENDING !
+function isTaken(str, arr){}
+*/
+
 export {
     getNumberOfWords, 
     getRomanNumeral, 

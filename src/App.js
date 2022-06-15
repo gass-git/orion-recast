@@ -1,7 +1,7 @@
 import React, {createContext, useReducer} from 'react'
 import './styles.css'
 import { getNumberOfWords } from './functions/utilityFunctions'
-import { processInput } from './functions/processInput'
+import { processInput } from './functions/processInput/processInput'
 import { appReducer, initialState } from './states'
 
 export const AppContext = createContext(null)
