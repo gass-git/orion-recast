@@ -8,6 +8,7 @@ export function processInput(n, input, dispatch, data){
   let arabicNumerals = []
   let credits = 0
   let metalName = ''
+  let result = null
 
   /** CASE 1
    * set name to roman numerals
@@ -65,10 +66,10 @@ export function processInput(n, input, dispatch, data){
       arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
     })
 
-    console.log(galacticNumerals)
-    console.log(romanNumerals)
-    console.log(arabicNumerals)
-    console.log(getTotal(arabicNumerals))
+    dispatch({
+      type: 'update result',
+      number: getTotal(arabicNumerals)
+    })
   }
 
   /** CASE 4
