@@ -1,7 +1,7 @@
 import {getRomanNumeral, getUnitName, getArabicNumeral, convertToRoman} from './utilityFunctions'
 import {getTotal} from './getTotal'
 
-export function processInput(n, input, dispatch, data){
+export function processInput(n, input, dispatch, data, metals){
   let strings = input.split(' ')
   let galacticNumerals = []
   let romanNumerals = []
@@ -9,6 +9,9 @@ export function processInput(n, input, dispatch, data){
   let credits = 0
   let metalName = ''
   let result = null
+  let product = null
+
+  // PENDING: validate text inputed
 
   /** CASE 1
    * set name to roman numerals
@@ -38,7 +41,7 @@ export function processInput(n, input, dispatch, data){
     romanNumerals = convertToRoman(galacticNumerals, data)
     arabicNumerals = []
 
-    // PENDING: validate
+    // PENDING: validate roman numeral logic
 
     // convert roman numerals to arabic numerals
     romanNumerals.forEach((symbol) => {
@@ -61,6 +64,8 @@ export function processInput(n, input, dispatch, data){
     galacticNumerals = strings.slice(3,strings.length - 1)
     romanNumerals = convertToRoman(galacticNumerals, data)
 
+    // PENDING: validate roman numeral logic
+
     // convert roman numerals to arabic numerals
     romanNumerals.forEach((symbol) => {
       arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
@@ -76,6 +81,24 @@ export function processInput(n, input, dispatch, data){
    * calculate the credits
    */
   else if(strings[0] === 'how' && strings[1] === 'many' && strings[2] === 'credits'){
-    
+    galacticNumerals = strings.slice(4,strings.length - 2)
+    romanNumerals = convertToRoman(galacticNumerals, data)
+    metalName = strings[strings.length - 2]
+
+    // PENDING: validate roman numeral logic
+
+    // convert roman numerals to arabic numerals
+    romanNumerals.forEach((symbol) => {
+      arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
+    })
+
+    // multiply the result of the galactic numerals by the metal value
+    product = getTotal(arabicNumerals) * metals[metalName]
+
+    dispatch({
+      type: 'update result',
+      number: product
+    })
+
   }
   }
