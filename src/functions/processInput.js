@@ -108,17 +108,32 @@ export function processInput(n, input, dispatch, data, metalValues){
     galacticNumerals = strings.slice(3,strings.length - 1)
     romanNumerals = convertToRoman(galacticNumerals, data)
 
-    // PENDING: validate roman numeral logic
+    // validate roman numeral logic
+    v1 = validation1(romanNumerals)
+    v2 = validation2(romanNumerals)
+    v3 = validation3(romanNumerals)
+    v4 = validation4(romanNumerals)
+    v5 = validation5(romanNumerals)
+ 
+    // continue only if all validations have passed
+    if(v1 && v2 && v3 && v4 && v5){
 
-    // convert roman numerals to arabic numerals
-    romanNumerals.forEach((symbol) => {
-      arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
-    })
+      // convert roman numerals to arabic numerals
+      romanNumerals.forEach((symbol) => {
+        arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
+      })
 
-    dispatch({
-      type: 'update result',
-      number: getTotal(arabicNumerals)
-    })
+      dispatch({
+        type: 'update result',
+        number: getTotal(arabicNumerals)
+      })
+    }
+    else{
+      dispatch({
+        type: 'update output',
+        text: 'invalid input: the numerical logic is not valid'
+      })
+    }
   }
 
   /** CASE 4
@@ -129,20 +144,34 @@ export function processInput(n, input, dispatch, data, metalValues){
     romanNumerals = convertToRoman(galacticNumerals, data)
     metalName = strings[strings.length - 2]
 
-    // PENDING: validate roman numeral logic
+    // validate roman numeral logic
+    v1 = validation1(romanNumerals)
+    v2 = validation2(romanNumerals)
+    v3 = validation3(romanNumerals)
+    v4 = validation4(romanNumerals)
+    v5 = validation5(romanNumerals)
+ 
+    // continue only if all validations have passed
+    if(v1 && v2 && v3 && v4 && v5){
 
-    // convert roman numerals to arabic numerals
-    romanNumerals.forEach((symbol) => {
-      arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
-    })
+      // convert roman numerals to arabic numerals
+      romanNumerals.forEach((symbol) => {
+        arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
+      })
 
-    // multiply the result of the galactic numerals by the metal value
-    product = getTotal(arabicNumerals) * metalValues[metalName]
+      // multiply the result of the galactic numerals by the metal value
+      product = getTotal(arabicNumerals) * metalValues[metalName]
 
-    dispatch({
-      type: 'update result',
-      number: product
-    })
-
+      dispatch({
+        type: 'update result',
+        number: product
+      })
+    }
+    else{
+      dispatch({
+        type: 'update output',
+        text: 'invalid input: the numerical logic is not valid'
+      })
+    }
   }
-  }
+}
