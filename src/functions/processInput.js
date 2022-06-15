@@ -1,5 +1,6 @@
 import {getRomanNumeral, getUnitName, getArabicNumeral, convertToRoman} from './utilityFunctions'
 import {getTotal} from './getTotal'
+import { validation1, validation2, validation3, validation4, validation5 } from './romanValidations'
 
 export function processInput(n, input, dispatch, data, metalValues){
   let strings = input.split(' ')
@@ -11,9 +12,13 @@ export function processInput(n, input, dispatch, data, metalValues){
   let result = null
   let product = null
 
+  // roman numerals rules validation variables
+  let [v1,v2,v3,v4,v5] = [null, null, null, null, null]
+
   // PENDING: validate text inputed
 
-  /** CASE 1
+  /** 
+   * CASE 1
    * set name to roman numerals
    */ 
   if(n === 3 && strings[1] === 'is'){
@@ -36,7 +41,7 @@ export function processInput(n, input, dispatch, data, metalValues){
       })
       dispatch({
         type:'update output',
-        text:'saved successfully!'
+        text:'updated successfully!'
       })
     }
     else{
@@ -47,7 +52,8 @@ export function processInput(n, input, dispatch, data, metalValues){
     }
   }
 
-  /** CASE 2
+  /** 
+   * CASE 2
    * calculate the value of the metal and save it
    */
   else if(n > 3 && strings[0] !== 'how'){
@@ -64,20 +70,35 @@ export function processInput(n, input, dispatch, data, metalValues){
     romanNumerals = convertToRoman(galacticNumerals, data)
     arabicNumerals = []
 
-    // PENDING: validate roman numeral logic
+    // validate roman numeral logic
+    v1 = validation1(romanNumerals)
+    v2 = validation2(romanNumerals)
+    v3 = validation3(romanNumerals)
+    v4 = validation4(romanNumerals)
+    v5 = validation5(romanNumerals)
 
-    // convert roman numerals to arabic numerals
-    romanNumerals.forEach((symbol) => {
-      arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
-    })
+    // continue only if all validations have passed
+    if(v1 && v2 && v3 && v4 && v5){
 
-    // calcuate and save the value of the metal
-    let valueOfMetal = credits/getTotal(arabicNumerals)
-    dispatch({
-      type: 'save value of metal',
-      metal: metalName,
-      value: valueOfMetal
-    })
+      // convert roman numerals to arabic numerals
+      romanNumerals.forEach((symbol) => {
+        arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
+      })
+
+      // calcuate and save the value of the metal
+      let valueOfMetal = credits/getTotal(arabicNumerals)
+      dispatch({
+        type: 'save value of metal',
+        metal: metalName,
+        value: valueOfMetal
+      })
+    }
+    else{
+      dispatch({
+        type: 'update output',
+        text: 'invalid input: the numerical logic is not valid'
+      })
+    }
   }
 
   /** CASE 3
