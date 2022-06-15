@@ -1,8 +1,7 @@
 const initialState = {
   input: '',
   conversions: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
-  metalValues: {gold: null, silver: null, bronze: null},
-  result: null,
+  metalValues: {gold: null, silver: null, bronze: null, iron: null},
   output: ''
 }
 
