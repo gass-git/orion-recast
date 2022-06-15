@@ -8,7 +8,7 @@ export const AppContext = createContext(null)
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const {input, data, metalValues, output} = state
+  const {input, conversions, metalValues, output} = state
 
   function handleChange(e){
     dispatch({type:'update input value', value: e.target.value})
@@ -16,7 +16,7 @@ export default function App() {
 
   function handleClick(){
     let numberOfWords = getNumberOfWords(input)
-    processInput(numberOfWords, input, dispatch, data, metalValues)
+    processInput(numberOfWords, input, dispatch, conversions, metalValues)
     dispatch({type: 'reset input'})
   }
 

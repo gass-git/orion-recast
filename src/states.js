@@ -1,6 +1,6 @@
 const initialState = {
   input: '',
-  data: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
+  conversions: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
   metalValues: {gold: null, silver: null, bronze: null},
   result: null,
   output: ''
@@ -11,8 +11,8 @@ function appReducer(state, action) {
         case 'set name to roman numeral':
             return {
                 ...state,
-                data: {
-                    ...state.data,
+                conversions: {
+                    ...state.conversions,
                     [action.romanNumeral]: action.unitName
                 }
             }

@@ -2,14 +2,13 @@ import {getRomanNumeral, getUnitName, getArabicNumeral, convertToRoman} from './
 import {getTotal} from './getTotal'
 import { validation1, validation2, validation3, validation4, validation5 } from './romanValidations'
 
-export function processInput(n, input, dispatch, data, metalValues){
+export function processInput(n, input, dispatch, conversions, metalValues){
   let strings = input.split(' ')
   let galacticNumerals = []
   let romanNumerals = []
   let arabicNumerals = []
   let credits = 0
   let metalName = ''
-  let result = null
   let product = null
 
   // roman numerals rules validation variables
@@ -67,7 +66,7 @@ export function processInput(n, input, dispatch, data, metalValues){
     metalName = strings[indexOfIs - 1]
     credits = Number(strings[indexOfIs + 1])
     galacticNumerals = strings.slice(0, indexOfIs - 1)
-    romanNumerals = convertToRoman(galacticNumerals, data)
+    romanNumerals = convertToRoman(galacticNumerals, conversions)
     arabicNumerals = []
 
     // validate roman numeral logic
@@ -106,7 +105,7 @@ export function processInput(n, input, dispatch, data, metalValues){
    */
   else if(strings[0] === 'how' && strings[1] === 'much' && strings[2] === 'is'){
     galacticNumerals = strings.slice(3,strings.length - 1)
-    romanNumerals = convertToRoman(galacticNumerals, data)
+    romanNumerals = convertToRoman(galacticNumerals, conversions)
 
     // validate roman numeral logic
     v1 = validation1(romanNumerals)
@@ -141,7 +140,7 @@ export function processInput(n, input, dispatch, data, metalValues){
    */
   else if(strings[0] === 'how' && strings[1] === 'many' && strings[2] === 'credits'){
     galacticNumerals = strings.slice(4,strings.length - 2)
-    romanNumerals = convertToRoman(galacticNumerals, data)
+    romanNumerals = convertToRoman(galacticNumerals, conversions)
     metalName = strings[strings.length - 2]
 
     // validate roman numeral logic
