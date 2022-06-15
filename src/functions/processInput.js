@@ -1,101 +1,50 @@
-import {getRomanNumeral, getUnitName, getArabicNumeral} from './utilityFunctions'
+import {getRomanNumeral, getUnitName, getArabicNumeral, convertToRoman} from './utilityFunctions'
+import {getTotal} from './getTotal'
 
 export function processInput(n, input, dispatch, data){
-    if(n === 3){
+  let inputArray = input.split(' ')
+
+  /**
+   * set name to roman numerals
+   */
+  if(n === 3){
       dispatch({
         type:'set name to roman numeral',
         unitName: getUnitName(input),
         romanNumeral: getRomanNumeral(input)
       })
     }
-    else if(n > 3){
-      let test = 'glob glob Silver is 34 Credits'
-      let array = test.split(' ')
+
+    /**
+     * calculate the value of the metal and save it
+     */
+    else if(n > 3 && inputArray[0] !== 'how'){
       let indexOfIs = null
-      let metal = ''
-      let credits = null
-      let romanNumerals = []
+
+      // find the index of the 'is' word
+      inputArray.forEach((str, i) =>{
+        if(str === 'is') indexOfIs = i
+      })
+      
+      let metalName = inputArray[indexOfIs - 1]
+      let credits = Number(inputArray[indexOfIs + 1])
+      let galacticNumerals = inputArray.slice(0, indexOfIs - 1)
+      let romanNumerals = convertToRoman(galacticNumerals, data)
       let arabicNumerals = []
 
-      // -- find the index of 'is' --
-      array.forEach((str, i) =>{
-         if(str === 'is') indexOfIs = i
-      })
+      // PENDING: validate
 
-      // -- save the metal type --
-      metal = array[indexOfIs - 1]
-
-      // -- slice the array --
-      let slicedArray = array.slice(0, indexOfIs - 1)
-
-      // -- convert intergalactic units to roman numerals --
-      slicedArray.forEach((galacticUnit) => {
-        for(const romanSymbol in data){
-          if(galacticUnit === data[romanSymbol]){
-            romanNumerals = [...romanNumerals, romanSymbol]
-          } 
-        }
-      })
-
-      // --- validation ---- 
-      // PENDING
-
-      // -- convert roman numerals to arabic numerals --
+      // convert roman numerals to arabic numerals
       romanNumerals.forEach((symbol) => {
         arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
       })
 
-      // -- calculate the result of the roman numerals and 
-      // convert to arabic numeral --
-      let numbersToSubstract = []
-      let numbersToSum = []
-
-      arabicNumerals.forEach((number, i) => {
-        if(i + 1 < arabicNumerals.length){
-          let nextNumber = arabicNumerals[i+1]
-
-          // if smaller number precedes the next number
-          if(number < nextNumber){
-            // substract
-            numbersToSubstract = [
-            ...numbersToSubstract,
-            number
-            ]
-          }
-          else{
-            numbersToSum = [
-              ...numbersToSum,
-              number
-            ]
-          }
-        }
-        else{
-          numbersToSum = [
-              ...numbersToSum,
-              number
-            ]
-        }
-      })
-
-      function sum(arr){
-        return arr.reduce((a,b) => a+b, 0)
-      }
-
-      let romanTotal = sum(numbersToSum) - sum(numbersToSubstract)
-      // console.log(romanTotal)
-
-
-      // -- calcuate and save the value of the metal --
-      metal = array[indexOfIs - 1]
-      credits = Number(array[indexOfIs + 1])
-
-      let valueOfMetal = credits/romanTotal
-
+      // calcuate and save the value of the metal
+      let valueOfMetal = credits/getTotal(arabicNumerals)
       dispatch({
         type: 'save value of metal',
-        metal: metal,
+        metal: metalName,
         value: valueOfMetal
       })
-
     }
   }

@@ -13,6 +13,10 @@ function getUnitName(str){
     return array[0]
 }
 
+function sumArrayOfNumbers(arr){
+    return arr.reduce((a,b) => a+b, 0)
+}
+
 function getArabicNumeral(symbol){
     switch(symbol){
         case 'I': return 1
@@ -26,4 +30,25 @@ function getArabicNumeral(symbol){
       }
 }
 
-export {getNumberOfWords, getRomanNumeral, getUnitName, getArabicNumeral}
+function convertToRoman(galacticNumerals, data){
+    let romanArray = []
+
+    galacticNumerals.forEach((galacticUnit) => {
+        for(const romanSymbol in data){
+            if(galacticUnit === data[romanSymbol]){
+            romanArray = [...romanArray, romanSymbol]
+            } 
+        }
+    })
+    
+    return romanArray
+}
+
+export {
+    getNumberOfWords, 
+    getRomanNumeral, 
+    getUnitName, 
+    getArabicNumeral, 
+    sumArrayOfNumbers,
+    convertToRoman
+}
