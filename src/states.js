@@ -2,7 +2,8 @@ const initialState = {
   input: '',
   data: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
   metalValues: {gold: null, silver: null, bronze: null},
-  result: null
+  result: null,
+  output: ''
 }
 
 function appReducer(state, action) {
@@ -41,6 +42,12 @@ function appReducer(state, action) {
                 result: action.number
             }
             
+        case 'update output':
+            return{
+                ...state,
+                output: action.text
+            }    
+
         default: return state
     }
 }
