@@ -1,7 +1,7 @@
 import {getRomanNumeral, getUnitName, getArabicNumeral, convertToRoman} from './utilityFunctions'
 import {getTotal} from './getTotal'
 
-export function processInput(n, input, dispatch, data, metals){
+export function processInput(n, input, dispatch, data, metalValues){
   let strings = input.split(' ')
   let galacticNumerals = []
   let romanNumerals = []
@@ -93,7 +93,7 @@ export function processInput(n, input, dispatch, data, metals){
     })
 
     // multiply the result of the galactic numerals by the metal value
-    product = getTotal(arabicNumerals) * metals[metalName]
+    product = getTotal(arabicNumerals) * metalValues[metalName]
 
     dispatch({
       type: 'update result',
