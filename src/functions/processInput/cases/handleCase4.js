@@ -32,13 +32,15 @@ export default function handleCase4(strings, dispatch, conversions, metalValues)
 
       dispatch({
         type: 'update output',
+        success: true,
         text: product
       })
     }
     else{
       dispatch({
         type: 'update output',
-        text: 'invalid input: the numerical logic is not valid'
+        success: false,
+        text: 'the numerical logic is not valid'
       })
     }
 }

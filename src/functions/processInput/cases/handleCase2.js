@@ -51,12 +51,14 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
           })
           dispatch({
             type: 'update output',
+            success: true,
             text: `the ${metalName} value has been updated!`
           })
         }
         else{
           dispatch({
             type: 'update output',
+            success: false,
             text: 'invalid input: the numerical logic is not valid'
           })
         }
@@ -64,6 +66,7 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
       else{
         dispatch({
           type: 'update output',
+          success: false,
           text: 'invalid input'
         })
       } 

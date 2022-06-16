@@ -28,19 +28,22 @@ export default function handleCase1(input, strings, dispatch, conversions){
         })
         dispatch({
           type:'update output',
+          success: true,
           text:'updated successfully!'
         })
       }
       else{
         dispatch({
           type:'update output',
-          text: 'invlid input: the input must ba a valid roman numeral. make sure to use the following format: galactic-unit is roman-numeral. Example: flop is M'
+          success: false,
+          text: 'the input must ba a valid roman numeral. make sure to use the following format: galactic-unit is roman-numeral. Example: flop is M'
         })
       }
     }
     else{
       dispatch({
         type:'update output',
+        success: false,
         text:'the conversion name is already been used'
       })
     }

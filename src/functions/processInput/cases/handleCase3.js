@@ -27,13 +27,15 @@ export default function handleCase3(strings, dispatch, conversions){
 
       dispatch({
         type: 'update output',
+        success: true,
         text: getTotal(arabicNumerals)
       })
     }
     else{
       dispatch({
         type: 'update output',
-        text: 'invalid input: the numerical logic is not valid'
+        success: false,
+        text: 'the numerical logic is not valid'
       })
     }
 }

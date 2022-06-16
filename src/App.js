@@ -3,6 +3,7 @@ import './styles.css'
 import { getNumberOfWords } from './functions/utilityFunctions'
 import { processInput } from './functions/processInput/processInput'
 import { appReducer, initialState } from './states'
+import AlertBox from './components/alertBox'
 
 export const AppContext = createContext(null)
 
@@ -24,7 +25,9 @@ export default function App() {
     <AppContext.Provider value={{state, dispatch}}>
       <input name='inputString' value={input} onChange={handleChange}/>
       <button onClick={() => handleClick()}>enter</button>
-      <p>{output}</p>
+      {
+        output.success ? output.text : <AlertBox text={output.text} />
+      }
     </AppContext.Provider>
   )
 }
