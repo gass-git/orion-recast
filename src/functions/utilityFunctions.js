@@ -3,16 +3,6 @@ function getNumberOfWords(str){
     return array.length
   }
 
-function getRomanNumeral(str){
-    let array = str.split(' ')
-    return array[2]
-}
-  
-function getUnitName(str){
-    let array = str.split(' ')
-    return array[0]
-}
-
 function sumArrayOfNumbers(arr){
     return arr.reduce((a,b) => a+b, 0)
 }
@@ -49,9 +39,7 @@ function isTaken(str, arr){}
 */
 
 export {
-    getNumberOfWords, 
-    getRomanNumeral, 
-    getUnitName, 
+    getNumberOfWords,
     getArabicNumeral, 
     sumArrayOfNumbers,
     convertToRoman

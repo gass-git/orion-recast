@@ -18,7 +18,7 @@ export function processInput(n, input, dispatch, conversions, metalValues){
    
   // CASE 1 - set galactic name to roman numerals
   else if(n === 3 && strings[1] === 'is'){
-    handleCase1(input, strings, dispatch)
+    handleCase1(input, strings, dispatch, conversions)
   }
 
   // CASE2 - calculate the value of the metal and save it
