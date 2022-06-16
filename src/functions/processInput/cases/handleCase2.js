@@ -14,10 +14,10 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
   
     // the word before 'is' should be the name of a metal
     let C = [
-        strings[indexOfIs] === 'gold',
-        strings[indexOfIs] === 'silver',
-        strings[indexOfIs] === 'iron',
-        strings[indexOfIs] === 'bronze'
+        strings[indexOfIs - 1] === 'gold',
+        strings[indexOfIs - 1] === 'silver',
+        strings[indexOfIs - 1] === 'iron',
+        strings[indexOfIs - 1] === 'bronze'
       ]
   
       if(C[0] || C[1] || C[2] || C[3]){

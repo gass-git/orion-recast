@@ -23,10 +23,19 @@ export default function App() {
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
+      {
+        output.success ? 
+        null
+        : 
+        <AlertBox text={output.text} dispatch={dispatch} />
+      }
       <input name='inputString' value={input} onChange={handleChange}/>
       <button onClick={() => handleClick()}>enter</button>
       {
-        output.success ? output.text : <AlertBox text={output.text} />
+        output.success ? 
+        <p>{output.text}</p>
+        : 
+        null
       }
     </AppContext.Provider>
   )
