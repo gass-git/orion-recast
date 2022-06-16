@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react'
-import './styles.css'
+import './styles.scss'
 import { getNumberOfWords } from './functions/utilityFunctions'
 import { processInput } from './functions/processInput/processInput'
 import { appReducer, initialState } from './states'
