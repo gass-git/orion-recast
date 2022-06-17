@@ -37,7 +37,7 @@ export default function App() {
         <AlertBox text={output.text} dispatch={dispatch} />
       }
 
-      <Form.Group as={Row} className='mt-5 mb-4' constrolid='form-group-1'>
+      <Form.Group as={Row} className='mt-4 mb-4' constrolid='form-group-1'>
         <Row>
           <Form.Control
             ref={inputField}
@@ -54,7 +54,7 @@ export default function App() {
             className='button mt-4 mb-3'
             onClick={() => handleClick()}
           >
-            Submit
+            submit
           </Button>
         </Row>
       </Form.Group >
