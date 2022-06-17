@@ -14,9 +14,21 @@ code {
     monospace;
 }
 
+.wrapper{
+  margin:50% auto 50% auto;
+}
+
 .alert{
   max-width: 600px;
   min-width: 300px;
+}
+
+.result{
+  margin-top:30px;
+  width: 100%;
+  font-size:25px;
+  display: flex;
+  justify-content: center;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";
