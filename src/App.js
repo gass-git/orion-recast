@@ -4,7 +4,7 @@ import { getNumberOfWords } from './functions/utilityFunctions'
 import { processInput } from './functions/processInput/processInput'
 import { appReducer, initialState } from './states'
 import AlertBox from './components/alertBox'
-import {Form, Row, Button, Container} from 'react-bootstrap'
+import {Form, Row, Button, Container, Card,Col, InputGroup} from 'react-bootstrap'
 
 export const AppContext = createContext(null)
 
@@ -25,46 +25,49 @@ export default function App() {
 
   useEffect(() => {
     inputField.current.focus()
-  },[])
+  })
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
-      <div className='wrapper'>
-      {
-        output.success ? 
-        null
-        : 
-        <AlertBox text={output.text} dispatch={dispatch} />
-      }
-
-      <Form.Group as={Row} className='mt-4 mb-4' constrolid='form-group-1'>
+      <Container fluid className='max-500 min-300 mt-5 pt-3 pb-3'>
+      <Row className='text-center'>
+          <h2 style={{color:'#33ff00'}}>
+            Orion Recast
+            - 
+            Intergalactic Converter
+          </h2>
+      </Row>
+      </Container>
+      <Container fluid className='max-500 min-300 form-container'>
         <Row>
-          <Form.Control
-            ref={inputField}
-            className='input-field'
-            type='string'
-            name='inputString'
-            value={input} 
-            onChange={handleChange}
-          />
+          {output.success ? null : <AlertBox text={output.text} dispatch={dispatch} />}
+        </Row>
+        <Row className='p-5'>
+          <Form className='text-center'>
+            <Form.Group>
+              <Form.Control
+                className='input-field'
+                ref={inputField}
+                type='string'
+                name='inputString'
+                value={input} 
+                onChange={handleChange}
+              />
+              </Form.Group>
+              <Button
+                variant='outline-primary'
+                size='lg'
+                className='button mt-3'
+                onClick={() => handleClick()}
+              >
+                submit
+              </Button>
+          </Form>
         </Row>
         <Row>
-          <Button
-            variant='outline-dark'
-            className='button mt-4 mb-3'
-            onClick={() => handleClick()}
-          >
-            submit
-          </Button>
+          {output.success ? <div className='result'>{output.text}</div> : null}
         </Row>
-      </Form.Group >
-      {
-        output.success ? 
-        <div className='result'>{output.text}</div>
-        : 
-        null
-      }
-      </div>
+      </Container>
     </AppContext.Provider>
   )
 }
