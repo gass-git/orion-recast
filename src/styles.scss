@@ -35,6 +35,7 @@ code {
 .form-control:focus {
   border: none!important;
   box-shadow: none!important;
+  background-color: transparent!important;
 }
 
 
@@ -56,6 +57,7 @@ code {
   background-color:transparent!important;
   color:#33ff00!important;
   border:none!important;
+  background-color: rgba(0,0,0,0.1)!important;
 }
 
 
