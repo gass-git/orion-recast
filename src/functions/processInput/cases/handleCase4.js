@@ -40,7 +40,7 @@ export default function handleCase4(strings, dispatch, conversions, metalValues)
       dispatch({
         type: 'update output',
         success: false,
-        text: 'the numerical logic is not valid'
+        text: 'The roman numerical logic is not valid'
       })
     }
 }

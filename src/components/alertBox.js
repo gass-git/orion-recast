@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import { Alert } from 'react-bootstrap'
 
 export default function AlertBox({text, dispatch}) {
@@ -10,7 +10,7 @@ export default function AlertBox({text, dispatch}) {
         onClose={() => dispatch({type:'reset output'})}
         dismissible
       >
-        <Alert.Heading>Oh snap! The input is not valid! Consider the following:</Alert.Heading>
+        <Alert.Heading>Oh snap! You got an error! Make sure:</Alert.Heading>
         - {text}<br />
       </Alert >
   )

@@ -35,7 +35,7 @@ export default function handleCase3(strings, dispatch, conversions){
       dispatch({
         type: 'update output',
         success: false,
-        text: 'the numerical logic is not valid'
+        text: 'The roman numerical logic is not valid'
       })
     }
 }

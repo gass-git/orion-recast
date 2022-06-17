@@ -4,7 +4,8 @@ import handleCase3 from './cases/handleCase3'
 import handleCase4 from './cases/handleCase4'
 
 export function processInput(n, input, dispatch, conversions, metalValues){
-  let strings = input.split(' ')
+  let lowerCaseInput = input.toLowerCase()
+  let strings = lowerCaseInput.split(' ')
   let indexOfIs = null
 
   // find the index of the 'is' word
@@ -13,7 +14,11 @@ export function processInput(n, input, dispatch, conversions, metalValues){
   })
 
   if(indexOfIs === null){
-    dispatch({ type:'update output', text: 'invlid input'})
+    dispatch({ 
+      type:'update output',
+      success: false,
+      text: `Inputs have the "is" word`
+    })
   }
    
   // CASE 1 - set galactic name to roman numerals
