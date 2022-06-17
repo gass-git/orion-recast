@@ -1,4 +1,4 @@
-import React, {createContext, useReducer} from 'react'
+import React, {createContext, useEffect, useReducer, useRef} from 'react'
 import './styles.scss'
 import { getNumberOfWords } from './functions/utilityFunctions'
 import { processInput } from './functions/processInput/processInput'
@@ -11,6 +11,7 @@ export const AppContext = createContext(null)
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
   const {input, conversions, metalValues, output} = state
+  const inputField = useRef(null)
 
   function handleChange(e){
     dispatch({type:'update input value', value: e.target.value})
@@ -21,6 +22,10 @@ export default function App() {
     processInput(numberOfWords, input, dispatch, conversions, metalValues)
     dispatch({type: 'reset input'})
   }
+
+  useEffect(() => {
+    inputField.current.focus()
+  },[])
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
@@ -34,10 +39,9 @@ export default function App() {
 
       <Form.Group as={Row} className='mt-5 mb-4' constrolid='form-group-1'>
         <Row>
-          <Form.Label>Intergalatic note: </Form.Label>
-        </Row>
-        <Row>
           <Form.Control
+            ref={inputField}
+            className='input-field'
             type='string'
             name='inputString'
             value={input} 
@@ -46,8 +50,8 @@ export default function App() {
         </Row>
         <Row>
           <Button
-            variant='outline-primary'
-            className='mt-4 mb-3'
+            variant='outline-dark'
+            className='button mt-4 mb-3'
             onClick={() => handleClick()}
           >
             Submit
