@@ -17,7 +17,7 @@ export default function App() {
     dispatch({type:'update input value', value: e.target.value})
   }
 
-  function handleClick(){
+  function handleSubmit(){
     let numberOfWords = getNumberOfWords(input)
     processInput(numberOfWords, input, dispatch, conversions, metalValues)
     dispatch({type: 'reset input'})
@@ -58,7 +58,7 @@ export default function App() {
                 variant='outline-primary'
                 size='lg'
                 className='button mt-3'
-                onClick={() => handleClick()}
+                onClick={() => handleSubmit()}
               >
                 submit
               </Button>

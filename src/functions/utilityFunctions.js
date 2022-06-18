@@ -9,13 +9,13 @@ function sumArrayOfNumbers(arr){
 
 function getArabicNumeral(symbol){
     switch(symbol){
-        case 'i': return 1
-        case 'v': return 5
-        case 'x': return 10
-        case 'l': return 50
-        case 'c': return 100
-        case 'd': return 500
-        case 'm': return 1000
+        case 'I': return 1
+        case 'V': return 5
+        case 'X': return 10
+        case 'L': return 50
+        case 'C': return 100
+        case 'D': return 500
+        case 'M': return 1000
         default: return null
       }
 }
@@ -26,7 +26,7 @@ function convertToRoman(galacticNumerals, conversions){
     galacticNumerals.forEach((galacticUnit) => {
         for(const romanSymbol in conversions){
             if(galacticUnit === conversions[romanSymbol]){
-                romanArray = [...romanArray, romanSymbol]
+                romanArray.push(romanSymbol)
             } 
         }
     })

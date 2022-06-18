@@ -24,7 +24,7 @@ export default function handleCase3(strings, dispatch, conversions){
       romanNumerals.forEach((symbol) => {
         arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
       })
-
+  
       dispatch({
         type: 'update output',
         success: true,

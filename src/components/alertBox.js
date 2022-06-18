@@ -10,7 +10,7 @@ export default function AlertBox({text, dispatch}) {
         onClose={() => dispatch({type:'reset output'})}
         dismissible
       >
-        <Alert.Heading>Oh snap! You got an error! Make sure:</Alert.Heading>
+        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
         <span style={{fontSize:'20px'}}>- {text}</span>
       </Alert >
   )
