@@ -9,6 +9,9 @@ import FormComponent from './components/form'
 import Title from './components/title'
 import OutputComponent from './components/outputComponent'
 import InfoModal from './components/infoModal'
+import useSound from 'use-sound'
+import bip from './assets/sounds/bip.wav'
+import breach from './assets/sounds/breach.wav'
 
 export const AppContext = createContext(null)
 
@@ -16,9 +19,16 @@ export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
   const {input, output, showModal} = state
   const inputField = useRef(null)
-  const handleChange = (e) => dispatch({type:'update input value', value: e.target.value})
+  const [playSoundOne] = useSound(bip)
+  const [playSoundTwo] = useSound(breach)
+
+  function handleChange(e){
+    playSoundOne()
+    dispatch({type:'update input value', value: e.target.value})
+  }
   
   function handleSubmit(){
+    playSoundTwo()
     processInput(getNumberOfWords(input), dispatch, state)
     dispatch({type: 'reset input'})
   }
