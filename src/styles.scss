@@ -21,8 +21,8 @@ code {
   color:#33ff00;
 }
 
-.max-500{
-  max-width: 500px!important;
+.max-550{
+  max-width: 550px!important;
 }
 
 .min-300{
@@ -48,6 +48,10 @@ code {
   background-color: rgba(0,0,0,0.5)!important;
 }
 
+.button:focus{
+  box-shadow: none!important;
+}
+
 .input-field{
   font-size:25px!important;
   background-color:transparent!important;
@@ -56,11 +60,11 @@ code {
   background-color: rgba(0,0,0,0.1)!important;
 }
 
-
 .alert{
+  margin: 0 auto;
   background-color: transparent!important;
-  max-width: 600px;
-  min-width: 300px;
+  max-width: 500px!important;
+  min-width: 300px!important;
 }
 
 .btn-close-white{

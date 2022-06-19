@@ -31,11 +31,11 @@ export default function App() {
   return (
     <AppContext.Provider value={{state, dispatch}}>
       
-      <Container fluid className='max-500 min-300 mt-5 pt-3 pb-3'>
+      <Container className='max-600 min-300 mt-5 pt-3 pb-3'>
         <Title />
       </Container>
 
-      <Container fluid className='max-500 min-300'>
+      <Container className='max-550 min-300'>
         <AlertBox dispatch={dispatch} output={output} />
         <FormComponent 
             input={input} 
