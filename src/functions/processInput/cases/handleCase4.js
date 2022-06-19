@@ -25,15 +25,36 @@ export default function handleCase4(strings, dispatch, conversions, metalValues)
         arabicNumerals.push(getArabicNumeral(symbol))
       })
 
-      // multiply the result of the galactic numerals by the metal value
-      product = getTotal(arabicNumerals) * metalValues[metalName]
+      // has the metal value been specified ?
+      if(metalValues[metalName] !== null){
+        
+        // multiply the result of the galactic numerals by the metal value
+        product = getTotal(arabicNumerals) * metalValues[metalName]
 
-      dispatch({
-        type: 'update output',
-        success: true,
-        text: `${product} credits`
-      })
-
+        // if galactic numerals have not been defined
+        if(arabicNumerals.length === galacticNumerals.length){
+          dispatch({
+            type: 'update output',
+            success: true,
+            text: `${product} credits`
+          })
+        }
+        else{
+          dispatch({
+            type: 'update output',
+            success: false ,
+            text: 'Unknown intergalactic numeral/s'
+          })
+        }
+      }
+      else{
+        dispatch({
+          type: 'update output',
+          success: false ,
+          text: `The value of ${metalName} hasn't been specified`
+        })
+      }
+      
     }
     else{
       dispatch({
