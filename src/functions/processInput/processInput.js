@@ -17,7 +17,7 @@ export function processInput(n, input, dispatch, conversions, metalValues){
     dispatch({ 
       type:'update output',
       success: false,
-      text: `Inputs have the "is" word`
+      text: `All inputs should have the "is" word`
     })
   }
    
