@@ -23,11 +23,21 @@ export default function handleCase3(strings, dispatch, conversions){
         arabicNumerals.push(getArabicNumeral(symbol))
       })
   
-      dispatch({
-        type: 'update output',
-        success: true,
-        text: getTotal(arabicNumerals)
-      })
+      // if galactic numerals have not been defined
+      if(arabicNumerals.length === galacticNumerals.length){
+        dispatch({
+          type: 'update output',
+          success: true,
+          text: getTotal(arabicNumerals)
+        })
+      }
+      else{
+        dispatch({
+          type: 'update output',
+          success: false ,
+          text: 'Unknown intergalactic numeral/s'
+        })
+      }
       
     }
     else{
