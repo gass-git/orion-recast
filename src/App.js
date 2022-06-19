@@ -23,7 +23,9 @@ export default function App() {
     dispatch({type: 'reset input'})
   }
 
-  useEffect(() => inputField.current.focus())
+  useEffect(() => {
+    setTimeout(() => inputField.current.focus(), 200)
+  })
 
   useEffect(() => {
     if(input.length > 0) dispatch({type: 'reset output'})
@@ -32,7 +34,7 @@ export default function App() {
   return (
     <AppContext.Provider value={{state, dispatch}}>
       
-      <InfoModal dispatch={dispatch} showModal={showModal}/>
+      <InfoModal dispatch={dispatch} showModal={showModal} />
 
       <Container className='max-600 min-300 mt-5 pt-3 pb-3'>
         <Title />

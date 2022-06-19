@@ -27,7 +27,7 @@ export default function FormComponent({
         <Form.Control
           className='input-field'
           ref={inputField}
-          type='string'
+          type='text'
           name='inputString'
           value={input} 
           onChange={handleChange}
@@ -48,7 +48,7 @@ export default function FormComponent({
           className='button font-orange'
           onClick={() => dispatch({type:'toggle modal'})}
         >
-          info
+          how to query
         </Button>
       </Form>
     </Row>
