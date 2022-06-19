@@ -35,7 +35,7 @@ All styles can be found in `src/styles.scss`
 
 ## States
 
-`states.js` contains the initialState and the appReducer function to manage all the states of the application.
+`states.js` contains the **initialState** and the **appReducer** function to manage all the states of the application.
 
 ## Available Scripts
 
