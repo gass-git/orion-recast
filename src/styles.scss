@@ -2,7 +2,7 @@
 
 body {
   font-family: 'VT323', monospace!important;
-  background-color: rgb(40,40,40)!important;
+  background-color: rgb(25,25,25)!important;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,6 +10,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /*border:1px solid white;*/
+  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.03), rgba(255,255,255, 0.03) 1px, transparent 1px, transparent 6px);
+  background-size: 3px 3px;
 }
 
 code {
@@ -17,20 +19,30 @@ code {
     monospace;
 }
 
+/* -- modal -- */
 .dark-bg-header{
+  background-color: rgb(25,25,25)!important;
   border-radius: 0px!important;
-  color:#33ff00!important;
+  color:rgb(51, 255, 0, 0.6)!important;
   border:1px solid transparent!important;
-  background-color:rgb(65, 65, 65)!important;
+  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.03), rgba(255,255,255, 0.03) 1px, transparent 1px, transparent 6px);
+  background-size: 3px 3px;
 }
 
 .dark-bg-body{
   font-size:20px!important;
-  background-color: rgb(102, 102, 102)!important;
+  color: rgba(255,255,255,0.5)!important;
+  background-color: rgb(28, 28, 28)!important;
+  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.03), rgba(255,255,255, 0.03) 1px, transparent 1px, transparent 6px);
+  background-size: 3px 3px;
 }
+.btn-close:focus{
+  box-shadow: none!important;
+}
+/* ----------- */
 
 .title{
-  color:#33ff00;
+  color:rgba(51, 255, 0,0.6);
 }
 
 .max-550{
@@ -48,17 +60,18 @@ code {
 }
 
 .button{
+  border-radius:0px!important;
   margin: 30px 10px 0px 10px!important;
   border:1px solid transparent!important;
-  color:#33ff00!important;
+  color:rgba(51, 255, 0,0.6)!important;
   font-size:25px!important;
   text-transform: uppercase;
   background-color: rgba(0,0,0,0.2)!important;
 }
 
 .button:hover{
-  border:1px solid rgba(36, 177, 1,0.8)!important;
-  background-color: rgba(0,0,0,0.5)!important;
+  border:1px solid transparent;
+  background-color: rgba(0,0,0,0.4)!important;
 }
 
 .button:focus{
@@ -66,11 +79,18 @@ code {
 }
 
 .input-field{
+  padding:0!important;
   font-size:25px!important;
   background-color:transparent!important;
-  color:#33ff00!important;
+  color:rgba(51, 255, 0,0.8)!important;
   border:none!important;
-  background-color: rgba(0,0,0,0.1)!important;
+  background-color: transparent!important;
+}
+
+.input-group{
+  background-color: transparent!important;
+  font-size:25px!important;
+  color:rgba(51, 255, 0,0.8)!important;
 }
 
 .alert{
