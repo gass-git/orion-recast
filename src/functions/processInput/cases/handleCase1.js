@@ -1,4 +1,4 @@
-export default function handleCase1(input, strings, dispatch, conversions){
+export default function handleCase1(strings, dispatch, conversions){
     let available = true
 
     // roman numeral should always be uppercase
@@ -6,13 +6,13 @@ export default function handleCase1(input, strings, dispatch, conversions){
 
     // check if conversion name is been used
     for(const romanNumeral in conversions){
-      if(strings[0] === conversions[romanNumeral]) {
-        available = false
-      }
+      if(strings[0] === conversions[romanNumeral]) available = false
     }
 
     // if conversion name is available continue
     if(available){
+      
+      // conditions
       let C = [ 
           romanNumeral === 'I',
           romanNumeral === 'V',

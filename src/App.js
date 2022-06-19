@@ -13,17 +13,20 @@ export const AppContext = createContext(null)
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const {input, conversions, metalValues, output} = state
+  const {input, output} = state
   const inputField = useRef(null)
   const handleChange = (e) => dispatch({type:'update input value', value: e.target.value})
   
   function handleSubmit(){
-    let numberOfWords = getNumberOfWords(input)
-    processInput(numberOfWords, input, dispatch, conversions, metalValues)
+    processInput(getNumberOfWords(input), dispatch, state)
     dispatch({type: 'reset input'})
   }
 
   useEffect(() => inputField.current.focus())
+
+  useEffect(() => {
+    if(input.length > 0) dispatch({type: 'reset output'})
+  },[input])
 
   return (
     <AppContext.Provider value={{state, dispatch}}>
