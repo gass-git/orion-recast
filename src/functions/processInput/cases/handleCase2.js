@@ -8,7 +8,6 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
     let galacticNumerals = []
     let romanNumerals = []
     let arabicNumerals = []
-
     let [v1,v2,v3,v4,v5] = [null, null, null, null, null]
   
     // the word before 'is' should be the name of a metal
@@ -24,7 +23,7 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
         credits = Number(strings[indexOfIs + 1])
         galacticNumerals = strings.slice(0, indexOfIs - 1)
         
-        // has all the galactic numerals been converted and saved as roman numeral?
+        // have all the galactic numerals inputed been converted and saved as roman numerals ?
         let allConverted = validateGalacticConversions(galacticNumerals, conversions)
         
         if(allConverted){
@@ -71,7 +70,7 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
           dispatch({
             type: 'update output',
             success: false,
-            text: 'All galactic numerals have been defined as roman numeral before saving the value of metals.'
+            text: 'All galactic numerals must be defined as roman numerals before saving the value of metals'
           })
         }
       }
@@ -79,7 +78,7 @@ export default function handleCase2(strings, dispatch, indexOfIs, conversions){
         dispatch({
           type: 'update output',
           success: false,
-          text: 'The metals can only be: gold, silver, bronze and iron'
+          text: 'Make sure to use the correct phrase formats and use one of the following metals: gold, silver, bronze or iron'
         })
       } 
 }

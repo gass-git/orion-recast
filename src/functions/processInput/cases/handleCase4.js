@@ -3,13 +3,11 @@ import {validation1, validation2, validation3, validation4, validation5} from '.
 import getTotal from '../../getTotal'
 
 export default function handleCase4(strings, dispatch, conversions, metalValues){
-    let galacticNumerals = strings.slice(4,strings.length - 2)
+    let galacticNumerals = strings.slice(4, strings.length - 2)
     let romanNumerals = convertToRoman(galacticNumerals, conversions)
     let metalName = strings[strings.length - 2]
     let product = 0
     let arabicNumerals = []
-
-    // roman numerals rules validation variables
     let [v1,v2,v3,v4,v5] = [null, null, null, null, null]
 
     // validate roman numeral logic
@@ -24,7 +22,7 @@ export default function handleCase4(strings, dispatch, conversions, metalValues)
 
       // convert roman numerals to arabic numerals
       romanNumerals.forEach((symbol) => {
-        arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
+        arabicNumerals.push(getArabicNumeral(symbol))
       })
 
       // multiply the result of the galactic numerals by the metal value
@@ -33,8 +31,9 @@ export default function handleCase4(strings, dispatch, conversions, metalValues)
       dispatch({
         type: 'update output',
         success: true,
-        text: product
+        text: `${product} credits`
       })
+
     }
     else{
       dispatch({

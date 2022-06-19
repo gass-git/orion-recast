@@ -35,13 +35,12 @@ function convertToRoman(galacticNumerals, conversions){
 
 function validateGalacticConversions(galacticNumerals, conversions){
     let count = 0
-    
+
     galacticNumerals.forEach((galacticUnit) => {
         for(const romanSymbol in conversions){
             if(galacticUnit === conversions[romanSymbol]) count++
         }
     })
-
     if(count === galacticNumerals.length) return true
     else return false
 }

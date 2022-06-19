@@ -3,11 +3,9 @@ import {validation1, validation2, validation3, validation4, validation5} from '.
 import getTotal from '../../getTotal'
 
 export default function handleCase3(strings, dispatch, conversions){
-    let galacticNumerals = strings.slice(3,strings.length - 1)
+    let galacticNumerals = strings.slice(3, strings.length - 1)
     let romanNumerals = convertToRoman(galacticNumerals, conversions)
     let arabicNumerals = []
-
-    // roman numerals rules validation variables
     let [v1,v2,v3,v4,v5] = [null, null, null, null, null]
 
     // validate roman numeral logic
@@ -22,7 +20,7 @@ export default function handleCase3(strings, dispatch, conversions){
 
       // convert roman numerals to arabic numerals
       romanNumerals.forEach((symbol) => {
-        arabicNumerals = [...arabicNumerals, getArabicNumeral(symbol)]
+        arabicNumerals.push(getArabicNumeral(symbol))
       })
   
       dispatch({
@@ -30,6 +28,7 @@ export default function handleCase3(strings, dispatch, conversions){
         success: true,
         text: getTotal(arabicNumerals)
       })
+      
     }
     else{
       dispatch({

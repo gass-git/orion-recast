@@ -14,12 +14,20 @@ export function processInput(n, dispatch, state){
     if(str === 'is') indexOfIs = i
   })
 
-  // if there is no 'is' word in input throw the following alert
-  if(indexOfIs === null){
+  if(strings.length === 1){
     dispatch({ 
       type:'update output',
       success: false,
-      text: `All inputs should have the "is" word`
+      text: `No input`
+    })
+  }
+
+  // if there is no 'is' word in input throw the following alert
+  else if(indexOfIs === null){
+    dispatch({ 
+      type:'update output',
+      success: false,
+      text: `All input phrases should have the "is" word`
     })
   }
    
@@ -41,5 +49,13 @@ export function processInput(n, dispatch, state){
   //CASE 4 - calculate the credits
   else if(strings[0] === 'how' && strings[1] === 'many' && strings[2] === 'credits'){
     handleCase4(strings, dispatch, conversions, metalValues)
+  }
+
+  else{
+    dispatch({ 
+      type:'update output',
+      success: false,
+      text: `The input phrase format is not valid`
+    })
   }
 }

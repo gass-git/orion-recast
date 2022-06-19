@@ -39,7 +39,7 @@ export default function handleCase1(strings, dispatch, conversions){
         dispatch({
           type:'update output',
           success: false,
-          text: 'The input must ba a valid roman numeral. make sure to use the following format: galactic-unit is roman-numeral. Example: flop is M'
+          text: 'The input must ba a valid roman numeral. Make sure to use the following format: galactic-unit is roman-numeral. Example: flop is M'
         })
       }
     }
