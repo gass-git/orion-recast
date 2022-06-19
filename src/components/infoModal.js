@@ -4,6 +4,7 @@ import {Modal} from 'react-bootstrap';
 export default function InfoModal({showModal, dispatch}) {
     return(    
         <Modal
+            className='modal'
             show={showModal} 
             onHide={() => dispatch({type: 'toggle modal'})}
         >
