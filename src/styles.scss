@@ -17,6 +17,18 @@ code {
     monospace;
 }
 
+.dark-bg-header{
+  border-radius: 0px!important;
+  color:#33ff00!important;
+  border:1px solid transparent!important;
+  background-color:rgb(65, 65, 65)!important;
+}
+
+.dark-bg-body{
+  font-size:20px!important;
+  background-color: rgb(102, 102, 102)!important;
+}
+
 .title{
   color:#33ff00;
 }
