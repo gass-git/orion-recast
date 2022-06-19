@@ -8,9 +8,15 @@ export default function FormComponent({
   handleSubmit, 
   dispatch
 }) {
+
+  function onSubmit(e){
+    e.preventDefault()
+    handleSubmit()
+  }
+
   return (
     <Row className='p-5'>
-    <Form className='text-center'>
+    <Form className='text-center' onSubmit={onSubmit}>
       <InputGroup>
         <InputGroup.Text 
           id='input-field-id' 
