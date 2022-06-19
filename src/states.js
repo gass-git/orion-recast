@@ -1,4 +1,5 @@
 const initialState = {
+  showModal: false,
   input: '',
   conversions: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
   metalValues: {gold: null, silver: null, bronze: null, iron: null},
@@ -7,6 +8,11 @@ const initialState = {
 
 function appReducer(state, action) {
     switch(action.type){
+        case 'toggle modal':
+            return{
+                ...state,
+                showModal: !state.showModal
+            }
         case 'set name to roman numeral':
             return {
                 ...state,

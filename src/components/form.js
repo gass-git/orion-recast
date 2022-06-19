@@ -1,7 +1,13 @@
 import React from 'react'
 import {Form, Button, Row} from 'react-bootstrap'
 
-export default function FormComponent({input, inputField, handleChange, handleSubmit}) {
+export default function FormComponent({
+  input, 
+  inputField, 
+  handleChange, 
+  handleSubmit, 
+  dispatch
+}) {
   return (
     <Row className='p-5'>
     <Form className='text-center'>
@@ -18,10 +24,18 @@ export default function FormComponent({input, inputField, handleChange, handleSu
         <Button
           variant='outline-primary'
           size='lg'
-          className='button mt-3'
+          className='button' 
           onClick={() => handleSubmit()}
         >
           submit
+        </Button>
+        <Button
+          variant='outline-primary'
+          size='lg'
+          className='button'
+          onClick={() => dispatch({type:'toggle modal'})}
+        >
+          info
         </Button>
       </Form>
     </Row>
