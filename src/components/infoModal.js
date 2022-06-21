@@ -1,11 +1,12 @@
 import React from 'react'
-import {Modal} from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
-export default function InfoModal({showModal, dispatch}) {
-    return(    
+export default function InfoModal({ showModal, dispatch }) {
+    return (
         <Modal
-            show={showModal} 
-            onHide={() => dispatch({type: 'toggle modal'})}
+            id='modal'
+            show={showModal}
+            onHide={() => dispatch({ type: 'toggle modal' })}
         >
             <Modal.Header className='dark-bg-header' closeButton>
                 <Modal.Title>INFO - QUERIES</Modal.Title>

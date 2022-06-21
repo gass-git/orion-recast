@@ -17,9 +17,17 @@ describe('show alert', () => {
         fireEvent.click(button)
         expect(screen.getByText('Oh snap! You got an error!')).toBeInTheDocument()
     })
+    test('case - nonsense input', () => {
+        render(<App />)
+        const input = screen.getByTestId('input-test-id')
+        const button = screen.getByText('submit')
+        fireEvent.click(input, { target: { value: 'how much wood could a woodchuck chuck if a woodchuck could chuck wood ?' } })
+        fireEvent.click(button)
+        expect(screen.getByText('Oh snap! You got an error!')).toBeInTheDocument()
+    })
 })
 
-describe('should output the correct answer', () => {
+describe('output the correct answer', () => {
     test('case 1 - how much is pish tegj glob glob ?', () => {
         render(<App />)
         const input = screen.getByTestId('input-test-id')

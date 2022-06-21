@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+:root {
+  --green-one: rgba(51, 255, 0, 0.6);
+  --green-two: rgba(51, 255, 0, 0.8);
+  --green-three: rgb(102, 255, 102);
+  --bg-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 6px);
+}
+
 body {
-  font-family: 'VT323', monospace!important;
-  background-color: rgb(25,25,25)!important;
+  font-family: 'VT323', monospace !important;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.03), rgba(255,255,255, 0.03) 1px, transparent 1px, transparent 6px);
+  background-color: rgb(25, 25, 25) !important;
+  background-image: var(--bg-image);
   background-size: 3px 3px;
 }
 
@@ -18,98 +22,106 @@ code {
     monospace;
 }
 
-/* -- modal -- */
-.dark-bg-header{
-  background-color: rgb(25,25,25)!important;
-  border-radius: 0px!important;
-  color:rgb(51, 255, 0, 0.6)!important;
-  border:1px solid transparent!important;
-  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.03), rgba(255,255,255, 0.03) 1px, transparent 1px, transparent 6px);
-  background-size: 3px 3px;
+.title {
+  color: var(--green-one);
 }
 
-.dark-bg-body{
-  font-size:22px!important;
-  color: rgba(255,255,255,0.5)!important;
-  background-color: rgb(28, 28, 28)!important;
-  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.03), rgba(255,255,255, 0.03) 1px, transparent 1px, transparent 6px);
-  background-size: 3px 3px;
-}
-.btn-close:focus{
-  box-shadow: none!important;
-}
-/* ----------- */
-
-.title{
-  color:rgba(51, 255, 0,0.6);
+.max-550 {
+  max-width: 550px !important;
 }
 
-.max-550{
-  max-width: 550px!important;
+.min-300 {
+  min-width: 300px !important;
 }
 
-.min-300{
-  min-width: 300px!important;
-}
-
-.form-control:focus {
-  border: none!important;
-  box-shadow: none!important;
-  background-color: transparent!important;
-}
-
-.button{
-  border-radius:0px!important;
-  margin: 30px 10px 0px 10px!important;
-  border:1px solid transparent!important;
-  color:rgba(51, 255, 0,0.6)!important;
-  font-size:25px!important;
-  text-transform: uppercase;
-  background-color: rgba(0,0,0,0.2)!important;
-}
-
-.button:hover{
-  border:1px solid transparent;
-  background-color: rgba(0,0,0,0.4)!important;
-}
-
-.button:focus{
-  box-shadow: none!important;
-}
-
-.input-field{
-  padding:0!important;
-  font-size:25px!important;
-  background-color:transparent!important;
-  color:rgba(51, 255, 0,0.8)!important;
-  border:none!important;
-  background-color: transparent!important;
-}
-
-.input-group{
-  background-color: transparent!important;
-  font-size:25px!important;
-  color:rgba(51, 255, 0,0.8)!important;
-}
-
-.alert{
-  margin: 0 auto;
-  background-color: transparent!important;
-  max-width: 500px!important;
-  min-width: 300px!important;
-}
-
-.btn-close-white{
-  color:rgba(0, 0, 0, 0.5)!important;
-}
-
-.result{
-  color:#66ff66;
-  margin-top:30px;
-  width: 100%;
-  font-size:25px;
+.result {
   display: flex;
   justify-content: center;
+  color: var(--green-three);
+  margin-top: 30px;
+  width: 100%;
+  font-size: 25px;
+}
+
+#modal .dark-bg-header {
+  background-color: rgb(22, 22, 22);
+  border-radius: 0px;
+  color: var(--green-one);
+  border: 1px solid transparent;
+  background-image: var(--bg-image);
+  background-size: 3px 3px;
+}
+
+#modal .dark-bg-body {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(28, 28, 28);
+  background-image: var(--bg-image);
+  background-size: 3px 3px;
+}
+
+#form .form-control:focus {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+#form .button {
+  border-radius: 0px;
+  margin: 30px 10px 0px 10px;
+  border: 1px solid transparent;
+  color: var(--green-one);
+  font-size: 25px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#form .button:hover {
+  border: 1px solid transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#form .button:focus {
+  box-shadow: none;
+}
+
+#form .input-text {
+  color: var(--green-two);
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 33px;
+  width: 35px;
+}
+
+#form .input-field {
+  padding: 0;
+  font-size: 25px;
+  background-color: transparent;
+  color: var(--green-two);
+  border: none;
+  background-color: transparent;
+}
+
+#form .input-group {
+  background-color: transparent;
+  font-size: 25px;
+  color: var(--green-two);
+}
+
+/* -- alert styles -- */
+.alert {
+  margin: 0 auto;
+  background-color: transparent !important;
+  max-width: 500px !important;
+  min-width: 300px !important;
+}
+
+.btn-close-white {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-close:focus {
+  box-shadow: none !important;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";
