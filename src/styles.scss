@@ -68,17 +68,17 @@ code {
 
 #form .button {
   border-radius: 0px;
-  margin: 30px 10px 0px 10px;
+  margin: 30px 5px 0px 5px;
   border: 1px solid transparent;
   color: var(--green-one);
-  font-size: 25px;
+  font-size: 23px;
   text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #form .button:hover {
   border: 1px solid transparent;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 #form .button:focus {

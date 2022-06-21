@@ -38,7 +38,7 @@ export default function FormComponent({
         <Button
           variant='outline-primary'
           size='lg'
-          className='button font-green'
+          className='button'
           onClick={() => handleSubmit()}
         >
           submit
@@ -46,7 +46,15 @@ export default function FormComponent({
         <Button
           variant='outline-primary'
           size='lg'
-          className='button font-orange'
+          className='button'
+          onClick={() => window.location.reload()}
+        >
+          reset
+        </Button>
+        <Button
+          variant='outline-primary'
+          size='lg'
+          className='button'
           onClick={() => dispatch({ type: 'toggle modal' })}
         >
           how to query
