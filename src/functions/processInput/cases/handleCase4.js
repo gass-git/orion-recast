@@ -29,7 +29,7 @@ export default function handleCase4(strings, dispatch, conversions, metalValues)
     if (metalValues[metalName] !== null) {
 
       // multiply the result of the galactic numerals by the metal value
-      product = getTotal(arabicNumerals) * metalValues[metalName]
+      product = Math.round(getTotal(arabicNumerals) * metalValues[metalName])
 
       // if galactic numerals have not been defined
       if (arabicNumerals.length === galacticNumerals.length) {
