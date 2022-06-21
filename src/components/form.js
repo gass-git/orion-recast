@@ -32,6 +32,7 @@ export default function FormComponent({
         </InputGroup.Text>
         <Form.Control
           className='input-field'
+          data-testid='input-test-id'
           ref={inputField}
           type='text'
           name='inputString'

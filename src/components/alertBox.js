@@ -8,7 +8,7 @@ export default function AlertBox({output, dispatch}) {
     <Row>
       <Alert
         className='alert btn-close-white'
-        data-testid='alert'
+        data-testid='alert-test-id'
         variant='danger'
         onClose={() => dispatch({type:'reset output'})}
         dismissible
