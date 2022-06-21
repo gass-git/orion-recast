@@ -1,7 +1,7 @@
 function getNumberOfWords(str){
     let array = str.split(' ')
     return array.length
-  }
+}
 
 function sumArrayOfNumbers(arr){
     return arr.reduce((a,b) => a+b, 0)
@@ -23,10 +23,10 @@ function getArabicNumeral(symbol){
 function convertToRoman(galacticNumerals, conversions){
     let romanArray = []
 
-    galacticNumerals.forEach((galacticUnit) => {
-        for(const romanSymbol in conversions){
-            if(galacticUnit === conversions[romanSymbol]){
-                romanArray.push(romanSymbol)
+    galacticNumerals.forEach((galacticNumeral) => {
+        for(const romanNumeral in conversions){
+            if(galacticNumeral === conversions[romanNumeral]){
+                romanArray.push(romanNumeral)
             } 
         }
     })
