@@ -36,9 +36,9 @@ function convertToRoman(galacticNumerals, conversions){
 function validateGalacticConversions(galacticNumerals, conversions){
     let count = 0
 
-    galacticNumerals.forEach((galacticUnit) => {
-        for(const romanSymbol in conversions){
-            if(galacticUnit === conversions[romanSymbol]) count++
+    galacticNumerals.forEach((galacticNumeral) => {
+        for(const romanNumeral in conversions){
+            if(galacticNumeral === conversions[romanNumeral]) count++
         }
     })
     if(count === galacticNumerals.length) return true
