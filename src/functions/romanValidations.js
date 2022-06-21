@@ -1,7 +1,7 @@
 /**
  * VALIDATION 1
  * 
- * symbols "I", "X", "C", and "M" can be repeated three 
+ * symbols "I", "X", "C" and "M" can be repeated three 
  * times in succession, but no more.
  */
 function validation1(arr){
@@ -12,7 +12,7 @@ function validation1(arr){
     let next = arr[i+1]
       
     if(i + 1 < arr.length){
-      if(current === 'I' || current === 'X' || current === 'C'){
+      if(current === 'I' || current === 'X' || current === 'C' || current === 'M'){
         if(current === next) count++
         else count = 1
       }

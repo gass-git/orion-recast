@@ -42,10 +42,10 @@ describe('tests for validateGalacticConversions()', () => {
 
     it('it should return true if all the galactic numerals inputed have been converted and saved as roman numerals', () => {
         let galacticNumerals = ['aa','bb','cc','dd','ee','ff','gg']
-        expect(validateGalacticConversions(galacticNumerals, conversions)).toBeTruthy
+        expect(validateGalacticConversions(galacticNumerals, conversions)).toBe(true)
     })
     it('it should return false if one or more galactic numerals inputed have not been converted and saved as roman numerals', () => {
         let galacticNumerals = ['xx','bb','cc','dd','ee','','gg']
-        expect(validateGalacticConversions(galacticNumerals, conversions)).toBeFalsy
+        expect(validateGalacticConversions(galacticNumerals, conversions)).toBe(false)
     })
 })
