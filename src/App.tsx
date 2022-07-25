@@ -10,7 +10,11 @@ import Title from './components/title'
 import OutputComponent from './components/outputComponent'
 import InfoModal from './components/infoModal'
 import useSound from 'use-sound'
+
+// @ts-ignore
 import bip from './assets/sounds/bip.wav'
+
+// @ts-ignore
 import breach from './assets/sounds/breach.wav'
 
 export const AppContext = createContext(null)
@@ -18,23 +22,28 @@ export const AppContext = createContext(null)
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
   const {input, output, showModal} = state
-  const inputField = useRef(null)
+  const inputField = useRef<HTMLInputElement>(null)
   const [playSoundOne] = useSound(bip)
   const [playSoundTwo] = useSound(breach)
 
-  function handleChange(e){
+  function handleChange(e: Event): void{
     playSoundOne()
-    dispatch({type:'update input value', value: e.target.value})
+    dispatch({
+      type:'update input value', 
+      value: (e.target as HTMLInputElement).value
+    })
   }
   
-  function handleSubmit(){
+  function handleSubmit(): void{
     playSoundTwo()
     processInput(getNumberOfWords(input), dispatch, state)
     dispatch({type: 'reset input'})
   }
 
   useEffect(() => {
-    setTimeout(() => inputField.current.focus(), 200)
+    setTimeout(() => {
+      if(inputField.current !== null) inputField.current.focus()
+    }, 200)
   })
 
   useEffect(() => {
