@@ -1,4 +1,19 @@
-const initialState = {
+interface MetalValues_types{
+    gold: number | null
+    silver: number | null
+    bronze: number | null
+    iron: number | null
+}
+
+interface IS_types {
+    showModal: boolean | null
+    input: string
+    conversions: Record<string, string>
+    metalValues: MetalValues_types
+    output: {success: boolean, text: string}
+}
+
+const initialState: IS_types = {
   showModal: false,
   input: '',
   conversions: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
