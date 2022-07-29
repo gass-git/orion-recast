@@ -1,30 +1,28 @@
-interface MetalValues_types{
-    gold: number | null
-    silver: number | null
-    bronze: number | null
-    iron: number | null
-}
-
-interface IS_types {
+interface StateTypes {
     showModal: boolean | null
     input: string
     conversions: Record<string, string>
-    metalValues: MetalValues_types
-    output: {success: boolean, text: string}
+    metalValues: {
+        gold: number | null
+        silver: number | null
+        bronze: number | null
+        iron: number | null
+    }
+    output: { success: boolean, text: string }
 }
 
-const initialState: IS_types = {
-  showModal: false,
-  input: '',
-  conversions: {I: '', V: '', X:'', L:'', C:'', D:'', M:''},
-  metalValues: {gold: null, silver: null, bronze: null, iron: null},
-  output: {success: true, text: ''}
+const initialState: StateTypes = {
+    showModal: false,
+    input: '',
+    conversions: { I: '', V: '', X: '', L: '', C: '', D: '', M: '' },
+    metalValues: { gold: null, silver: null, bronze: null, iron: null },
+    output: { success: true, text: '' }
 }
 
-function appReducer(state, action) {
-    switch(action.type){
+function appReducer(state: StateTypes, action: { [key: string]: string }) {
+    switch (action.type) {
         case 'toggle modal':
-            return{
+            return {
                 ...state,
                 showModal: !state.showModal
             }
@@ -39,7 +37,7 @@ function appReducer(state, action) {
         case 'reset input':
             return {
                 ...state,
-                input:''
+                input: ''
             }
         case 'update input value':
             return {
@@ -48,34 +46,34 @@ function appReducer(state, action) {
             }
 
         case 'save value of metal':
-            return{
+            return {
                 ...state,
                 metalValues: {
                     ...state.metalValues,
-                    [action.metal]:action.value
+                    [action.metal]: action.value
                 }
             }
-            
+
         case 'update output':
-            return{
+            return {
                 ...state,
                 output: {
                     success: action.success,
                     text: action.text
                 }
-            }    
+            }
 
         case 'reset output':
-            return{
+            return {
                 ...state,
                 output: {
                     success: true,
                     text: ''
                 }
-            }    
+            }
 
         default: return state
     }
 }
 
-export {initialState, appReducer}
+export { initialState, appReducer }
