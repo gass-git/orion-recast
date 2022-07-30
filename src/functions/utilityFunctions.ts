@@ -7,9 +7,7 @@ function sumArrayOfNumbers(arr: number[]): number {
     return arr.reduce((a, b) => a + b, 0)
 }
 
-function getArabicNumeral(
-    symbol: 'I' | 'V' | 'X' | 'L' | 'C' | 'D' | 'M'
-): number {
+function getArabicNumeral(symbol: string): number {
     switch (symbol) {
         case 'I': return 1
         case 'V': return 5
