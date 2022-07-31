@@ -2,7 +2,11 @@ import { getArabicNumeral, convertToRoman } from '../../utilityFunctions'
 import { validation1, validation2, validation3, validation4, validation5 } from '../../romanValidations'
 import getTotal from '../../getTotal'
 
-export default function handleCase3(strings, dispatch, conversions) {
+export default function handleCase3(
+  strings: string[],
+  dispatch: any,
+  conversions: Record<string, string>
+): void {
   let galacticNumerals = strings.slice(3, strings.length - 1)
   let romanNumerals = convertToRoman(galacticNumerals, conversions)
   let arabicNumerals = []
