@@ -1,4 +1,8 @@
-export default function handleCase1(strings, dispatch, conversions) {
+export default function handleCase1(
+  strings: string[],
+  dispatch: any,
+  conversions: Record<string, string>
+): void {
   let available = true
 
   // roman numeral should always be uppercase
