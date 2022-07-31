@@ -1,9 +1,9 @@
 import { sumArrayOfNumbers } from './utilityFunctions'
 
-export default function getTotal(arabicNumerals) {
-  let numbersToSubstract = []
-  let numbersToSum = []
-  let [a, b] = [null, null]
+export default function getTotal(arabicNumerals: number[]): number {
+  let numbersToSubstract: number[] = []
+  let numbersToSum: number[] = []
+  let [a, b]: number[] = [null, null]
 
   arabicNumerals.forEach((number, i) => {
     if (i + 1 < arabicNumerals.length) {
