@@ -1,4 +1,4 @@
-const reportWebVitals = onPerfEntry => {
+const reportWebVitals = (onPerfEntry: any) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     // @ts-ignore
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
