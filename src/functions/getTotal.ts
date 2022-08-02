@@ -3,7 +3,7 @@ import { sumArrayOfNumbers } from './utilityFunctions'
 export default function getTotal(arabicNumerals: number[]): number {
   let numbersToSubstract: number[] = []
   let numbersToSum: number[] = []
-  let [a, b]: number[] | null[] = [null, null]
+  let [a, b]: Array<number | null> = [null, null]
 
   arabicNumerals.forEach((number, i) => {
     if (i + 1 < arabicNumerals.length) {
