@@ -26,7 +26,7 @@ export default function App() {
   const [playSoundOne] = useSound(bip)
   const [playSoundTwo] = useSound(breach)
 
-  function handleChange(e: Event): void{
+  function handleChange(e: React.ChangeEvent<Element>): void{
     playSoundOne()
     dispatch({
       type:'update input value', 
