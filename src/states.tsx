@@ -8,7 +8,10 @@ interface StateTypes {
         bronze: number | null
         iron: number | null
     }
-    output: { success: boolean, text: string }
+    output: { 
+        success: boolean | string
+        text: string 
+    }
 }
 
 const initialState: StateTypes = {

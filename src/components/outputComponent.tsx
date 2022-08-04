@@ -3,7 +3,7 @@ import {Row} from 'react-bootstrap'
 
 interface Output{
   output: { 
-    success: boolean
+    success: boolean | string
     text: string 
   }
 }

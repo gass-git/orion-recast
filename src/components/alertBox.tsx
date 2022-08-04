@@ -3,15 +3,15 @@ import { Row, Alert } from 'react-bootstrap'
 
 interface Output{
   output: { 
-    success: boolean
+    success: boolean | string
     text: string 
   }
 }
 
 export default function AlertBox(
   {output}: Output, 
-  {dispatch}
-  ): JSX.Element | null {
+  {dispatch}: any
+  ){
   if (output.success) return null
 
   else return (
