@@ -9,7 +9,7 @@ interface Output{
 }
 
 export default function AlertBox(
-  {output}: Output, 
+  {output}: any, 
   {dispatch}: any
   ){
   if (output.success) return null

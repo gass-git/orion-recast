@@ -60,7 +60,6 @@ export default function App() {
       </Container>
 
       <Container className='max-550 min-300'>
-        {/* @ts-ignore */}
         <AlertBox dispatch={dispatch} output={output} />
         <FormComponent 
             dispatch={dispatch}
