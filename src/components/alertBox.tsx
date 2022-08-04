@@ -1,7 +1,17 @@
 import React from 'react'
 import { Row, Alert } from 'react-bootstrap'
 
-export default function AlertBox({ output, dispatch }) {
+interface Output{
+  output: { 
+    success: boolean
+    text: string 
+  }
+}
+
+export default function AlertBox(
+  {output}: Output, 
+  {dispatch}
+  ): JSX.Element | null {
   if (output.success) return null
 
   else return (

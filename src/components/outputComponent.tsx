@@ -1,7 +1,14 @@
 import React from 'react'
 import {Row} from 'react-bootstrap'
 
-export default function OutputComponent({output}: any): JSX.Element {
+interface Output{
+  output: { 
+    success: boolean
+    text: string 
+  }
+}
+
+export default function OutputComponent({output}: Output) {
   if(output.success) return (
     <Row>
         <div className='result'>{output.text}</div>
