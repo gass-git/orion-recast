@@ -9,8 +9,8 @@ export default function handleCase3(
 ): void {
   let galacticNumerals = strings.slice(3, strings.length - 1)
   let romanNumerals = convertToRoman(galacticNumerals, conversions)
-  let arabicNumerals = []
-  let [v1, v2, v3, v4, v5] = [null, null, null, null, null]
+  let arabicNumerals: number[] = []
+  let [v1, v2, v3, v4, v5]: Array<boolean | null> = [null, null, null, null, null]
 
   // validate roman numeral logic
   v1 = validation1(romanNumerals)
@@ -24,7 +24,8 @@ export default function handleCase3(
 
     // convert roman numerals to arabic numerals
     romanNumerals.forEach((symbol) => {
-      arabicNumerals.push(getArabicNumeral(symbol))
+      let arabicNumeral = getArabicNumeral(symbol) 
+      if(arabicNumeral !== null) arabicNumerals.push(arabicNumeral)
     })
 
     // if galactic numerals have not been defined
