@@ -5,10 +5,10 @@
  * times in succession, but no more.
  */
 function validation1(arr: string[]): boolean {
-  let count = 1
-  let pass = true
+  let count: number = 1
+  let pass: boolean = true
 
-  arr.forEach((current, i) => {
+  arr.forEach((current: string, i) => {
     let next = arr[i + 1]
 
     if (i + 1 < arr.length) {

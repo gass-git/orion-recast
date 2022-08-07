@@ -5,7 +5,7 @@ export default function getTotal(arabicNumerals: number[]): number {
   let numbersToSum: number[] = []
   let [a, b]: Array<number | null> = [null, null]
 
-  arabicNumerals.forEach((number, i) => {
+  arabicNumerals.forEach((number: number, i: number) => {
     if (i + 1 < arabicNumerals.length) {
       let nextNumber = arabicNumerals[i + 1]
 
